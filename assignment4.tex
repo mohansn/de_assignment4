@@ -1,0 +1,81 @@
+\documentclass[a4paper,11ppt]{article}
+\pagestyle{plain}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% We use \therefore from this package
+\usepackage[retainorgcmds]{IEEEtrantools}
+\begin{document}
+
+\title{Assignment 4 - Differential Equations}
+\date{\today}
+\author{Mohan S Nayaka}
+\renewcommand{\arraystretch}{1.5}
+
+\textbf{1. }$\mathbf{y - x + xycotx + xy' = 0}$\\
+\[y - x + xycotx + xy' = 0\]
+\[\therefore x\frac{dy}{dx} + y + xycotx = x\]
+\begin{equation}
+\therefore \frac{dy}{dx} + y\left(\frac{1}{x}+cotx\right) = x \label{lineq}
+\end{equation}
+This is a linear first order differential equation where\\
+$P(x) = \left(\frac{1}{x}+cotx\right)$ and $Q(x) = 1$\\
+Thus, the integrating factor is $e^{\int{P(x)}dx}$
+\begin{IEEEeqnarray*}{rCl}
+\int{P(x)}dx & = & \int\left(\frac{1}{x} + cotx\right)dx\\
+          & = & lnx+ln(sinx)\\
+          & = & ln(xsinx)\\
+\end{IEEEeqnarray*}
+Thus, the integrating factor is\\
+\begin{IEEEeqnarray*}{rCl}
+e^{\int{P(x)}}dx &=& e^{ln(xsinx)}\\
+                &=& xsinx\\
+\end{IEEEeqnarray*}
+Multiplying \eqref{lineq} by the integrating factor, we get,\\
+\begin{IEEEeqnarray*}{rCl}
+xsinx\frac{dy}{dx} + xysinx\left(\frac{1}{x}+cotx\right) &=& x sinx\\
+\text{
+Recognising the left hand-side as a derivative,
+}\\
+\frac{d}{dx}(xysinx) &=& xsinx
+\end{IEEEeqnarray*}
+\[\therefore xysinx = \int{xsinx}dx\]
+\[\therefore xysinx = x\left(\int{sinx}\right)dx - \int\left({\frac{d}{dx}(x)\int{sinx}dx}\right)dx\]
+\[\therefore xysinx = xcosx - \int{(1)(-cosx)}dx\]
+Hence, the solution is :\\
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+$xysinx = -xcosx + sinx + C$\\
+\hline
+\end{tabular}
+\end{center}
+\textbf{2. }$\mathbf{y - xy' = y'y^2e^y}$\\
+\begin{IEEEeqnarray*}{rCl}
+y=\frac{dy}{dx}\left(x+y^2e^y\right)
+\end{IEEEeqnarray*}
+\[\therefore \frac{dx}{dy} = \frac{x+y^2e^y}{y}\]
+\[\therefore \frac{dx}{dy} = \frac{x}{y}+ye^y\]
+\begin{equation}
+\therefore \frac{dx}{dy} - \frac{x}{y} = ye^y \label{lineq2}
+\end{equation}
+This is of the form $\frac{dx}{dy} = P(y)x = Q(y)$\\
+and thus a linear differential equation in y.\\
+The integrating factor for \eqref{lineq2} is\\
+\[  e^{\int(P(y))}dy\]
+\[= e^{\int(\frac{-1}{y})dy}\]
+\[= e^{-lny}\]
+\[= \frac{1}{y}\]
+Multiplying \eqref{lineq2} by the integrating factor, we get:\\
+\[\frac{1}{y}\frac{dx}{dy} - \frac{x}{y^2} = e^y\]
+Recognising the derivative on the left-hand-side, we have:\\
+\[\frac{d}{dy}\left(\frac{x}{y}\right) = e^y\]
+Thus the solution is:
+{\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+$\frac{x}{y} = e^y + C$\\
+\hline
+\end{tabular}
+\end{center}}
+\end{document}
